@@ -1,6 +1,7 @@
 import webpack from 'webpack';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import baseConfig from './webpack.config.base';
+import postcssConfig from './postcss.config';
 
 const config = {
   ...baseConfig,
@@ -20,25 +21,17 @@ const config = {
 
     loaders: [
       ...baseConfig.module.loaders,
-
       {
-        test: /\.global\.css$/,
+        test: /\.css$/,
         loader: ExtractTextPlugin.extract(
           'style-loader',
-          'css-loader'
-        )
-      },
-
-      {
-        test: /^((?!\.global).)*\.css$/,
-        loader: ExtractTextPlugin.extract(
-          'style-loader',
-          'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]'
+          'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]',
+          'postcss-loader'
         )
       }
     ]
   },
-
+  postcss: postcssConfig,
   plugins: [
     ...baseConfig.plugins,
     new webpack.optimize.OccurenceOrderPlugin(),
@@ -56,7 +49,6 @@ const config = {
     }),
     new ExtractTextPlugin('style.css', { allChunks: true })
   ],
-
   target: 'electron-renderer'
 };
 

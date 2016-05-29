@@ -1,5 +1,4 @@
 import path from 'path';
-import postcssPlugins from './postcss.config.js';
 
 export default {
   module: {
@@ -25,7 +24,6 @@ export default {
   plugins: [
 
   ],
-  postcss: postcssPlugins,
   externals: [
     // put your node 3rd party libraries which can't be built with webpack here
     // (mysql, mongodb, and so on..)

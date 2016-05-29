@@ -1,6 +1,7 @@
 /* eslint max-len: 0 */
 import webpack from 'webpack';
 import baseConfig from './webpack.config.base';
+import postcssConfig from './postcss.config';
 
 const config = {
   ...baseConfig,
@@ -23,25 +24,17 @@ const config = {
     ...baseConfig.module,
     loaders: [
       ...baseConfig.module.loaders,
-
       {
-        test: /\.global\.css$/,
+        test: /\.css$/,
         loaders: [
           'style-loader',
-          'css-loader?sourceMap'
-        ]
-      },
-
-      {
-        test: /^((?!\.global).)*\.css$/,
-        loaders: [
-          'style-loader',
-          'css-loader?modules&sourceMap&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader'
+          'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]',
+          'postcss-loader'
         ]
       }
     ]
   },
-
+  postcss: postcssConfig,
   plugins: [
     ...baseConfig.plugins,
     new webpack.HotModuleReplacementPlugin(),
@@ -53,7 +46,6 @@ const config = {
       }
     })
   ],
-
   target: 'electron-renderer'
 };
 

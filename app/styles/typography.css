@@ -1,27 +1,15 @@
-h2 {
-  margin: 0;
-  font-size: 2.25rem;
-  font-weight: bold;
-  letter-spacing: -.025em;
-  color: #fff;
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Roboto', 'Segoe UI', sans-serif;
 }
 
-p {
-  font-size: 24px;
-}
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 200;
+  letter-spacing: -0.0125em;
 
-li {
-  list-style: none;
-}
-
-a {
-  color: white;
-  opacity: .75;
-  text-decoration: none;
-}
-
-a:hover {
-  opacity: 1;
-  text-decoration: none;
-  cursor: pointer;
+  &:first-child {
+    margin-top: 0;
+  }
+  &:last-child {
+    margin-bottom: 0;
+  }
 }

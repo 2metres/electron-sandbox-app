@@ -1,8 +1,19 @@
 import React, { Component } from 'react';
-import Home from '../components/Home/Home';
+
+import Main from '../components/Main/Main';
+import Tile from '../components/Tile/Tile';
 
 export default class HomePage extends Component {
   render() {
-    return <Home />;
+    return (
+      <Main>
+        <Tile grid={[3, 5]} />
+        <Tile grid={[2, 5]} />
+        <Tile grid={[2, 5]} />
+
+        <Tile grid={[6, 5]} />
+        <Tile grid={[2, 5]} />
+      </Main>
+    );
   }
 }

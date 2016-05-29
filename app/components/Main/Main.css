@@ -1,0 +1,8 @@
+@import 'styles/variables.css';
+
+.root {
+  padding: var(--base-spacing);
+  flex-flow: wrap;
+  justify-content: space-between;
+  display: flex;
+}

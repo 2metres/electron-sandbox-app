@@ -1,0 +1,8 @@
+:root {
+  --base-background: #101316;
+  --base-color:      #abb2c1;
+
+  --base-spacing:        1vh;
+
+  --tile-background: color( var(--base-background) tint(5%) );
+}

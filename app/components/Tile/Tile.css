@@ -1,0 +1,9 @@
+@import '../../styles/variables.css';
+
+.root {
+  background: var(--tile-background);
+  margin: var(--base-spacing);
+  padding: var(--base-spacing);
+  cursor: move;
+  flex: 1 auto;
+}
